@@ -7,12 +7,12 @@ app.config.from_mapping(
     SECRET_KEY='development'
 )
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def home():
     return render_template('partials/inicio.html')
     
 @app.route('/prueba', methods=['GET', 'POST'])
-def recepcion():
+def prueba():
     if request.method == 'POST':
         cedula=request.form['cedula']
         nombre=request.form['nombre']
@@ -28,18 +28,8 @@ def recepcion():
 
             return redirect('/prueba')
     else:
-        with mysql.cursor() as cur:
-            cur.execute("SELECT * FROM datos")
-            data = cur.fetchall() 
-            # cur.execute("SELECT * FROM recepcion ORDER BY id DESC")
-            # id = cur.fetchone() 
-            # cur.execute("SELECT * FROM agricultores")
-            # agricultores=cur.fetchall()
-            # cur.execute("SELECT * FROM operarios")
-            # operarios = cur.fetchall()
+        return render_template('partials/pruebaenvio.html')
 
-            return render_template('partials/pruebaenvio.html', data=data)
-            # return render_template('partials/pruebaenvio.html', data=data, agricultores=agricultores, operarios=operarios)
 
 
 HOST = 'localhost'
