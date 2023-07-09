@@ -7,7 +7,7 @@ app.config.from_mapping(
     SECRET_KEY='development'
 )
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
     return render_template('partials/inicio.html')
     
