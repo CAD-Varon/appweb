@@ -29,10 +29,9 @@ def prueba():
                 flash("La informacion de recepción se ha agregado correctamente", "success")
             except:
                 flash("Ha ocurrido un error al registrar la informacion de recepción", "error")
-
             return redirect('/prueba')
     else:
-        return render_template('partials/pruebaenvio.html')
+            return render_template('partials/pruebaenvio.html')
 
 
 
