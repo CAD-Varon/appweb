@@ -10,6 +10,10 @@ app.config.from_mapping(
 @app.route('/')
 def home():
     return render_template('partials/inicio.html')
+
+@app.route('/holamundo')
+def holamundo():
+    return "hola mundo"
     
 @app.route('/prueba', methods=['GET', 'POST'])
 def prueba():
